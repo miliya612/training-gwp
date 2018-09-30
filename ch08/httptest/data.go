@@ -2,14 +2,14 @@ package main
 
 import (
 	"database/sql"
-	"github.com/bitly/go-nsq"
+	_ "github.com/lib/pq"
 )
 
 var Db *sql.DB
 
 func init() {
 	var err error
-	Db, err := sql.Open("postgres", "user=gwp dbname=gwp password=gwp sslmode=disable")
+	Db, err = sql.Open("postgres", "user=gwp dbname=postgres password=gwp sslmode=disable")
 	if err != nil {
 		panic(err)
 	}

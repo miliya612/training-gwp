@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"path"
 	"strconv"
@@ -34,6 +35,7 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 		err = handleDelete(w, r)
 	}
 	if err != nil {
+		fmt.Println(err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
